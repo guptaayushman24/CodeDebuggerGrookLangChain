@@ -20,3 +20,11 @@ language = st.text("Enter Language")
 
 if st.button("Check Code") :
     checkCode (user_input,language)
+    if (user_input.strip() and language.strip()) :
+        answer = checkCode(user_input,language)
+        if answer :
+            st.subheader("Response:")
+            st.write(answer)
+    
+    else :
+        st.warning("Please enter a question before searching")
