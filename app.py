@@ -18,7 +18,7 @@ try :
     model = ChatGroq(model="llama-3.1-8b-instant",groq_api_key=groq_api_key)
     generic_template = """
     You are a {language} syntax checker.
-Check the following code for **syntax errors** and potential **runtime errors**.
+Check the following code for **syntax errors** and potential **runtime errors** and **logical errors.
 Suggest corrections only for errors found.
 Explain each error clearly, then provide the corrected code in a fenced code block.
 Use the following format:
