@@ -3,10 +3,11 @@ import requests
 def checkCode (language:str,code:str) :
     try :
         payload = {"language":language,"code":user_input}
-        api_url = 
+        api_url = "https://codedebuggergrooklangchain.onrender.com/debugcode"
         reponse = requests.post(api_url,json=payload)
         reponse.raise_for_status()
         data = reponse.json()
+        # print("The data"+" "+data)
         return data
     except requests.exceptions.RequestException as e :
         st.error(f"Error calling API: {e}")
@@ -15,7 +16,9 @@ def checkCode (language:str,code:str) :
 st.title("Check for the Syntax,Compilation and Logical Error")
 user_input = st.text_area("Enter your code here:")
 st.write("You entered:", user_input)
-language = st.text("Enter Language")
+
+language = st.text_input("Enter Language")
+st.write("Selected language is", language)
 
 
 if st.button("Check Code") :
